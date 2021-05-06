@@ -1,3 +1,3 @@
-// Outcome HelloWorld uwu
+// Outcome HelloWorld
 
-console.log('Hello World uwu')
+console.log('Hello World') // test push
