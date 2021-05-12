@@ -52,4 +52,25 @@ console.log(helloString, helloString, helloString)
 //i=index 1 zeichen variable
 for (let i = 0; i < 3; i++) { console.log(helloString) }
 
+//exercise operatoren
+const y = 10
+const z = 2
+const x = y / z
+console.log(x)
 
+//exercise 2 operatoren
+function code1() {
+    const y = 20
+    const z = 10
+    const x = (y / z) * 4;
+    console.log(x)
+  }
+  
+  code1()
+
+//exercise 3 operatoren
+function code2() {
+    const firstName = 'Daniel'
+    console.log('Hallo'+ firstName+'!')
+}
+code2()
