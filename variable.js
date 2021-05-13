@@ -74,3 +74,28 @@ function code2() {
     console.log('Hallo'+ firstName+'!')
 }
 code2()
+
+//exercise 4 basics
+function code3() {
+  const firstName = 'Janine'
+  const lastName = 'Quinten' 
+  console.log('Hallo ' + firstName + ' ' + lastName)
+}
+code3()
+
+function code32() {
+  const firstName = 'Jannik'
+  const lastName = 'Welter'
+  console.log(`Hallo ${firstName} ${lastName}`)
+}
+code32()
+
+function code33() {
+ let firstName = 'jannix'
+ const lastName = 'Welter'
+ const template = `Hallo ${firstName} ${lastName}`
+ console.log(template)
+ firstName = 'Jannixxxxxx'
+ console.log(template)
+}
+code33()
