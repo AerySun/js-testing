@@ -84,18 +84,18 @@ function code3() {
 code3()
 
 function code32() {
-  const firstName = 'Jannik'
-  const lastName = 'Welter'
+  const firstName = 'Janni'
+  const lastName = 'meow'
   console.log(`Hallo ${firstName} ${lastName}`)
 }
 code32()
 
 function code33() {
- let firstName = 'jannix'
- const lastName = 'Welter'
+ let firstName = 'janine'
+ const lastName = 'Quinten'
  const template = `Hallo ${firstName} ${lastName}`
  console.log(template)
- firstName = 'Jannixxxxxx'
+ firstName = 'Janni'
  console.log(template)
 }
 code33()
@@ -109,3 +109,31 @@ function multiply(faktor1, faktor2) {
   return result
 }
 console.log(multiply(10,5))
+
+function names(firstName) {
+  console.log(`Hello ${firstName}`)
+}
+names('Daniel')
+names('David')
+names('Kaleb')
+
+function add(n1, n2) {
+  return n1 + n2
+}
+
+function sub(n1, n2){
+  return n1 - n2
+}
+
+function mul(n1, n2){
+  return n1 * n2
+}
+
+function div(n1, n2){
+  return n1 / n2
+}
+
+console.log(add(1,3))
+console.log(sub(5,2))
+console.log(mul(4,4))
+console.log(div(20,5))
