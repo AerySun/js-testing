@@ -99,3 +99,13 @@ function code33() {
  console.log(template)
 }
 code33()
+
+//functions p.48
+
+let result = 0
+
+function multiply(faktor1, faktor2) {
+  result = faktor1 * faktor2
+  return result
+}
+console.log(multiply(10,5))
