@@ -138,3 +138,7 @@ console.log(sub(5,2))
 console.log(mul(4,4))
 console.log(div(20,5))
 
+function mudda() {
+  console.log('Hallo Conny')
+}
+mudda()
