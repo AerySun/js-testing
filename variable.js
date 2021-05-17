@@ -143,20 +143,3 @@ function mudda() {
 }
 mudda()
 
-function division(val1, val2, callbackFunction) {
-  //Ergebnis der Division ermitteln
-  const result = val1 / val2
-  //aufruf der callbackFunktion
-  callbackFunction(result)
-}
-//definition der callback funktion
-function showResult(result){
-  console.log(result)
-}
-//aufruf der division
-division(10, 5, showResult)
-
-//anonyme funktion, () => {}   is the same as function() {}
-setTimeout( () => {
-  console.log('Timeout!')
-}, 3000)
