@@ -24,7 +24,7 @@ function division(vall1, vall2, callbackFunction) {
   function show(wert) {
     console.log(wert)
    }
-   addition(10, 5, show)
+   addition(15, 5, show)
 
    //modify exercise 1 
    function addition(val1, val2, callback) {
@@ -45,6 +45,7 @@ function division(vall1, vall2, callbackFunction) {
        callback(val2)
        callback(val1 + val2)
    }
-   addition(5, 10, function (wert) {
+   addition(5, 15, function (wert) {
        console.log(wert)
    })
+   
