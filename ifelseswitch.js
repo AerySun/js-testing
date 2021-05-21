@@ -25,4 +25,18 @@ function division(counter, denominator) {
 }
 division()
 
+function division(counter, denominator){
+    if(denominator !== 0){
+        return counter/denominator
+    } else if (denominator === 0){
+        return "Divide by 0 is not allowed"
+    }
+}
+division()
 
+//ternary operator / ternaere operatoren
+//const variable = Bedingung ? Val : Val   // bedingung ?  true: false
+//const climate = temperature > 20 ? "Hot" : "Cold"
+const daytime = 'morning'
+const greeting = daytime === 'morning' ? 'good morning' : 'good evening'
+console.log(greeting) 
