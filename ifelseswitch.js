@@ -40,3 +40,15 @@ division()
 const daytime = 'morning'
 const greeting = daytime === 'morning' ? 'good morning' : 'good evening'
 console.log(greeting) 
+
+switch (available) {
+    case value:
+    //codeblock
+    break
+    case value2:
+    //codeblock
+    break
+    default: 
+    //codeblock
+    break
+}
