@@ -13,3 +13,38 @@ function whileloop(){
     }
 }
 whileloop()
+
+function ue(){
+    let i = 0
+    while (true){
+        console.log(`The Number is ${i}`)
+        i += 1
+        if(i === 55) {
+            break
+        }
+    }
+}
+ue()
+
+function uebung1(){
+    for(let i = 1 ; i <= 1000 ; i++){
+        console.log(i)
+    }
+}
+uebung1()
+
+function uebung2(){
+    for(let i = 2 ; i <= 1000 ; i+=2){
+        console.log(i)
+    }
+}
+uebung2()
+
+function uebung3(){
+    let i = 7
+    while(i <= 1000) {
+        console.log(i)
+        i = i + 7
+    }
+}
+uebung3()
