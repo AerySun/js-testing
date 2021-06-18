@@ -48,3 +48,27 @@ function uebung3(){
     }
 }
 uebung3()
+
+function ue1() {
+    for(i = 0 ; i <= 1000 ; i++){
+        console.log(i)
+    }
+}
+ue1()
+
+function ue2() {
+    for(i = 2 ; i <= 1000 ; i += 2){
+        console.log(i)
+    }
+    
+}
+ue2()
+
+function ue3() {
+    let i = 7
+    while(i <= 1000){
+        console.log(i)
+        i = i + 7
+    }
+}
+ue3()
