@@ -9,10 +9,10 @@ function roll_dice() {
 let sum = 0
 
 while(true) {
-    const roll = roll_dice()
-    console.log(roll)
-    sum += roll
-    if(roll >= 5) break
+const roll = roll_dice()
+console.log(roll)
+sum += roll
+if (roll >= 5) break
 }
 
 let result = Math.floor(sum + 1)
