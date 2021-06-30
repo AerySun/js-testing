@@ -8,6 +8,7 @@ function roll_dice() {
 
 let sum = 0
 
+// eslint-disable-next-line no-constant-condition
 while(true) {
 const roll = roll_dice()
 console.log(roll)

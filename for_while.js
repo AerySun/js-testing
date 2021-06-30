@@ -16,12 +16,9 @@ whileloop()
 
 function ue(){
     let i = 0
-    while (true){
+    while (i !== 55){
         console.log(`The Number is ${i}`)
         i += 1
-        if(i === 55) {
-            break
-        }
     }
 }
 ue()
@@ -50,14 +47,14 @@ function uebung3(){
 uebung3()
 
 function ue1() {
-    for(i = 0 ; i <= 1000 ; i++){
+    for(let i = 0 ; i <= 1000 ; i++){
         console.log(i)
     }
 }
 ue1()
 
 function ue2() {
-    for(i = 2 ; i <= 1000 ; i += 2){
+    for(let i = 2 ; i <= 1000 ; i += 2){
         console.log(i)
     }
     
