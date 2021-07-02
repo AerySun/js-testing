@@ -24,7 +24,7 @@ const strategies = {
     high: roll => roll >= 19,
 //niedrige zahl, roll kleiner als 19 und ungleich 0
     low: roll => roll < 19 && roll !== 0,
-//rote zahl, array wird gefiltert, Wert ist hier egal, index=i, funktion wird geoeffnet => i restlos teilbar durch 2, dann wird gecheckt welche rote Zahl das array enthaelt.
+//rote zahl, array wird gefiltert, Wert ist hier egal, index=i, funktion wird geoeffnet => i restlos teilbar durch 2, dann wird gecheckt ob eine gerade Zahl mit der gewuerfelten Zahl uebereinstimmt.
     red: roll => table.filter((_, i)=> i % 2 === 0).includes(roll),
 //rot checkt jede zweite Stelle im array, da sich rot und schwarz abwechseln. Schwarz checkt alle ungeraden Zahlen -> 3,5,7,9..Stelle im array.
     black: roll => table.filter((_, i)=> i % 2 === 1).includes(roll),
