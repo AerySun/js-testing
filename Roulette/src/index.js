@@ -12,8 +12,6 @@ const table = [
 
 const player = {
     chips: 1000,
-    betStrategy: null,
-    betAmount: null,
 }
 
 const strategies = {
@@ -40,7 +38,7 @@ async function playOneRound() {
             name: 'bettingAmount',
             message: 'What is your betting amount?',
         }
-    ]) 
+    ])
 
     if(player.chips < answers.bettingAmount){
         return
