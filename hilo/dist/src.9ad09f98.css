@@ -1,19 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(20, 20, 20);
+}
+
+body * {
+    box-sizing: border-box;
+}
+
 header {
+    width: 100%;
+    padding: 1rem;
+    color: rgb(20, 20, 20);
     font-size: 2rem;
     font-weight: bold;
     text-decoration: underline;
     text-align: center;
+    background: rgb(209,255,92);
+    background: linear-gradient(90deg, rgba(209,255,92,0.6881127450980392) 0%, rgba(88,255,215,0.6881127450980392) 50%, rgba(98,255,173,0.7413340336134453) 100%);
 }
 
 main {
     display: flex;
     flex-direction: column;
+    width: 150px;
 }
 
 .credit_display{
     margin: 7rem auto 1rem auto;
     text-align: center;
-    background-color: rgb(209, 209, 209);
+    width: 4rem;
+    border: 1px solid #58ffd7;
+    border-radius: .5rem;
+    color: rgb(236, 235, 235);
+    background-color: rgb(20, 20, 20);
 }
 
 .buttons {
@@ -22,22 +45,49 @@ main {
     border-radius: 0.5rem;
 }
 
+.buttons :hover {
+    opacity: .75;
+}
+
 .btn {
-    width: 2rem;
+    text-align: center  ;
+    width: 4rem;
+    border: 2px solid rgb(158, 255, 158);
     border-radius: 0.5rem;
     margin: .5rem;
     padding: 0 0.5rem;
     cursor: pointer;
-    background-color: rgb(211, 211, 211);
+    color: rgb(236, 235, 235);
+    background-color: rgb(20, 20, 20);
 }
 
 .bet {
+    align-self: center;
+    text-align: center;
+    padding: .25rem;
+    font-size: .8rem;
+    width: 4rem;
     margin: 1rem 40rem;
     outline: none;
+    border: 1px solid rgb(158, 255, 158);
+    background-color: rgb(20, 20, 20);
+    border-radius: .5rem;
+    color: rgb(236, 235, 235);
 }
 
 .result_display{
     text-align: center;
+    color: rgb(236, 235, 235);
+    border: 1px solid #58ffd7;
+    border-radius: .5rem;
+}
+
+.result_display.won {
+    color: rgb(62, 209, 62);
+}
+
+.result_display.lost {
+    color: rgb(206, 55, 55);
 }
 
 /*# sourceMappingURL=/src.9ad09f98.css.map */

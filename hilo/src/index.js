@@ -22,8 +22,9 @@ const strategies = {
  * 
  * @param {HTMLElement} el 
  */
-function updateCreditDisplay(el) {
-    el.textContent = player.credits.toString()
+function updateCreditDisplay() {
+    const elCreditDisplay = document.querySelector('.credit_display')
+    elCreditDisplay.textContent = player.credits.toString()
 }
 
 /**
@@ -34,28 +35,68 @@ function updateCreditDisplay(el) {
 function play(rollType) {
     const roll = random(0, 9999)
     const strategy = strategies[rollType]
-    if (strategy(roll)) {
-        window.alert('You Won!')
-    } else {
-        window.alert('You lost!')
+    const betAmount = getBetAmount()
+    if (player.credits < betAmount) {
+        return
     }
+
+    if (strategy(roll)) {
+        
+        player.credits += betAmount
+    } else {
+        
+        player.credits -= betAmount
+    }
+    updateResultDisplay(roll, strategy(roll))
+    updateCreditDisplay()
 }
+
+function updateResultDisplay(roll, won) {
+    const eleResultDisplay = document.querySelector('.result_display')
+    eleResultDisplay.textContent = roll.toString()
+    eleResultDisplay.classList.remove('won', 'lost')
+    eleResultDisplay.classList.add(won ? 'won' : 'lost')
+}
+
+function getBetAmount() {
+    const el = document.querySelector('.bet')
+    return Math.max(parseInt(el.value) || 1, 1)
+}
+
+function setBetAmount(value) {
+    const el = document.querySelector('.bet')
+    el.value = value.toString()
+}
+
+function doubleBet() {
+    const newBet = Math.min(getBetAmount() * 2, player.credits)
+    setBetAmount(newBet)
+}
+
+function halfBet() {
+    const newBet = Math.max(Math.floor(getBetAmount() / 2),1)
+    setBetAmount(newBet)
+}
+
 
 // 
 // Frontend Connection
 // 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Initialize credit display
-    const elCreditDisplay = document.querySelector('.credit_display')
-    updateCreditDisplay(elCreditDisplay)
-
+    
     // Setup click handlers for play buttons
     const btnLow = document.querySelector('#btn-low')
     const btnHigh = document.querySelector('#btn-high')
+    const doubleTwo = document.querySelector('#double')
+    const halfTwo = document.querySelector('#half')
 
     btnLow.addEventListener('click', () => play('low'))
     btnHigh.addEventListener('click', () => play('high'))
+    doubleTwo.addEventListener('click', () => doubleBet())
+    halfTwo.addEventListener('click', () => halfBet())
+    
+    updateCreditDisplay()
+    updateResultDisplay(0)
 })
 

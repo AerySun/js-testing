@@ -19398,8 +19398,9 @@ var strategies = {
  * @param {HTMLElement} el 
  */
 
-function updateCreditDisplay(el) {
-  el.textContent = player.credits.toString();
+function updateCreditDisplay() {
+  var elCreditDisplay = document.querySelector('.credit_display');
+  elCreditDisplay.textContent = player.credits.toString();
 }
 /**
  * Play one round of the high-low game.
@@ -19411,30 +19412,72 @@ function updateCreditDisplay(el) {
 function play(rollType) {
   var roll = (0, _lodash.random)(0, 9999);
   var strategy = strategies[rollType];
+  var betAmount = getBetAmount();
+
+  if (player.credits < betAmount) {
+    return;
+  }
 
   if (strategy(roll)) {
-    window.alert('You Won!');
+    player.credits += betAmount;
   } else {
-    window.alert('You lost!');
+    player.credits -= betAmount;
   }
+
+  updateResultDisplay(roll, strategy(roll));
+  updateCreditDisplay();
+}
+
+function updateResultDisplay(roll, won) {
+  var eleResultDisplay = document.querySelector('.result_display');
+  eleResultDisplay.textContent = roll.toString();
+  eleResultDisplay.classList.remove('won', 'lost');
+  eleResultDisplay.classList.add(won ? 'won' : 'lost');
+}
+
+function getBetAmount() {
+  var el = document.querySelector('.bet');
+  return Math.max(parseInt(el.value) || 1, 1);
+}
+
+function setBetAmount(value) {
+  var el = document.querySelector('.bet');
+  el.value = value.toString();
+}
+
+function doubleBet() {
+  var newBet = Math.min(getBetAmount() * 2, player.credits);
+  setBetAmount(newBet);
+}
+
+function halfBet() {
+  var newBet = Math.max(Math.floor(getBetAmount() / 2), 1);
+  setBetAmount(newBet);
 } // 
 // Frontend Connection
 // 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Initialize credit display
-  var elCreditDisplay = document.querySelector('.credit_display');
-  updateCreditDisplay(elCreditDisplay); // Setup click handlers for play buttons
-
+  // Setup click handlers for play buttons
   var btnLow = document.querySelector('#btn-low');
   var btnHigh = document.querySelector('#btn-high');
+  var doubleTwo = document.querySelector('#double');
+  var halfTwo = document.querySelector('#half');
   btnLow.addEventListener('click', function () {
     return play('low');
   });
   btnHigh.addEventListener('click', function () {
     return play('high');
   });
+  doubleTwo.addEventListener('click', function () {
+    return doubleBet();
+  });
+  halfTwo.addEventListener('click', function () {
+    return halfBet();
+  });
+  updateCreditDisplay();
+  updateResultDisplay(0);
 });
 },{"lodash":"../node_modules/lodash/lodash.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -19464,7 +19507,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55836" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60452" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
