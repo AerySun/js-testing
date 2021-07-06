@@ -19,14 +19,23 @@ header {
     font-weight: bold;
     text-decoration: underline;
     text-align: center;
-    background: rgb(209,255,92);
-    background: linear-gradient(90deg, rgba(209,255,92,0.6881127450980392) 0%, rgba(88,255,215,0.6881127450980392) 50%, rgba(98,255,173,0.7413340336134453) 100%);
+    /* background: rgb(209,255,92);
+    background: linear-gradient(90deg, rgba(209,255,92,0.6881127450980392) 0%, rgba(88,255,215,0.6881127450980392) 50%, rgba(98,255,173,0.7413340336134453) 100%); */
+    -webkit-animation: bgcolorchange 4s infinite;
+    animation: 4s infinite bgcolorchange;
+}
+
+@-webkit-keyframes bgcolorchange {
+    0%   {background: rgb(103, 103, 243)}
+    25%  {background: rgb(97, 252, 200);}
+    75%  {background: rgb(103, 255, 128);}
+    100% {background: rgb(103, 103, 243);}
 }
 
 main {
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: 200px;
 }
 
 .credit_display{
@@ -50,6 +59,7 @@ main {
 }
 
 .btn {
+    flex-grow: 1;
     text-align: center  ;
     width: 4rem;
     border: 2px solid rgb(158, 255, 158);

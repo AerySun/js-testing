@@ -78,6 +78,23 @@ function halfBet() {
     setBetAmount(newBet)
 }
 
+function betAll() {
+    setBetAmount(player.credits)
+}
+
+function reset() {
+    setBetAmount(1)
+}
+
+let autorollIntervalId = null
+function autoroll() {
+    if(autorollIntervalId !== null) {
+        clearInterval(autorollIntervalId) 
+        autorollIntervalId = null
+        return
+    }
+    autorollIntervalId = setInterval(() => play('high'), 250)
+}
 
 // 
 // Frontend Connection
@@ -90,11 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnHigh = document.querySelector('#btn-high')
     const doubleTwo = document.querySelector('#double')
     const halfTwo = document.querySelector('#half')
+    const allIn = document.querySelector('#allIn')
+    const setBack = document.querySelector('#setBack')
+    const btnautoroll = document.querySelector('#autoroll')
 
     btnLow.addEventListener('click', () => play('low'))
     btnHigh.addEventListener('click', () => play('high'))
     doubleTwo.addEventListener('click', () => doubleBet())
     halfTwo.addEventListener('click', () => halfBet())
+    allIn.addEventListener('click', () => betAll())
+    setBack.addEventListener('click', () => reset())
+    btnautoroll.addEventListener('click' , () => autoroll())
     
     updateCreditDisplay()
     updateResultDisplay(0)

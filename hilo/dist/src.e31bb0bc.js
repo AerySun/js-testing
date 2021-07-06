@@ -19453,6 +19453,28 @@ function doubleBet() {
 function halfBet() {
   var newBet = Math.max(Math.floor(getBetAmount() / 2), 1);
   setBetAmount(newBet);
+}
+
+function betAll() {
+  setBetAmount(player.credits);
+}
+
+function reset() {
+  setBetAmount(1);
+}
+
+var autorollIntervalId = null;
+
+function autoroll() {
+  if (autorollIntervalId !== null) {
+    clearInterval(autorollIntervalId);
+    autorollIntervalId = null;
+    return;
+  }
+
+  autorollIntervalId = setInterval(function () {
+    return play('high');
+  }, 250);
 } // 
 // Frontend Connection
 // 
@@ -19464,6 +19486,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var btnHigh = document.querySelector('#btn-high');
   var doubleTwo = document.querySelector('#double');
   var halfTwo = document.querySelector('#half');
+  var allIn = document.querySelector('#allIn');
+  var setBack = document.querySelector('#setBack');
+  var btnautoroll = document.querySelector('#autoroll');
   btnLow.addEventListener('click', function () {
     return play('low');
   });
@@ -19475,6 +19500,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   halfTwo.addEventListener('click', function () {
     return halfBet();
+  });
+  allIn.addEventListener('click', function () {
+    return betAll();
+  });
+  setBack.addEventListener('click', function () {
+    return reset();
+  });
+  btnautoroll.addEventListener('click', function () {
+    return autoroll();
   });
   updateCreditDisplay();
   updateResultDisplay(0);
