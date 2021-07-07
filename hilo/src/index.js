@@ -88,11 +88,16 @@ function reset() {
 
 let autorollIntervalId = null
 function autoroll() {
+    const el = document.getElementById("autoroll")
+    el.classList.toggle('autoroll--active')
+    
     if(autorollIntervalId !== null) {
         clearInterval(autorollIntervalId) 
         autorollIntervalId = null
+        el.textContent = 'Autoroll'
         return
     }
+    el.textContent = 'stop'
     autorollIntervalId = setInterval(() => play('high'), 250)
 }
 

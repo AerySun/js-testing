@@ -100,4 +100,8 @@ main {
     color: rgb(206, 55, 55);
 }
 
+.autoroll--active {
+    color: red;
+}
+
 /*# sourceMappingURL=/src.9ad09f98.css.map */

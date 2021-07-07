@@ -99,3 +99,7 @@ main {
 .result_display.lost {
     color: rgb(206, 55, 55);
 }
+
+.autoroll--active {
+    color: red;
+}

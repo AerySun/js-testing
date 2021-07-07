@@ -19466,12 +19466,17 @@ function reset() {
 var autorollIntervalId = null;
 
 function autoroll() {
+  var el = document.getElementById("autoroll");
+  el.classList.toggle('autoroll--active');
+
   if (autorollIntervalId !== null) {
     clearInterval(autorollIntervalId);
     autorollIntervalId = null;
+    el.textContent = 'Autoroll';
     return;
   }
 
+  el.textContent = 'stop';
   autorollIntervalId = setInterval(function () {
     return play('high');
   }, 250);
