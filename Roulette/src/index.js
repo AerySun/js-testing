@@ -1,5 +1,13 @@
 const { prompt } = require('enquirer')
 const {random} = require('lodash')
+const {I18n} = require('i18n')
+const path = require('path')
+
+const i18n = new I18n({
+    locales: ['en', 'de'],
+    directory: path.join(__dirname, 'lang'),
+    
+})
 
 //gibt random zahl zwischen 0 und 36 aus
 function gamble() {
@@ -30,22 +38,37 @@ const strategies = {
     black: roll => table.filter((_, i)=> i % 2 === 1).includes(roll),
 }
 
+async function chooseLanguage() {
+    const result = await prompt({
+        type: 'select',
+        name: 'language',
+        message: 'choose your language',
+        choices: ['en', 'de']
+    })
+    i18n.setLocale(result.language)
+}
+
 async function playOneRound() {
 //gibt an wie viele chips der Spieler am anfang hat.
-    console.log(`You have ${player.chips} chips.`)
+    console.log(i18n.__('player_chips', {chips: player.chips}))
 //object mit 1. auswahl, und 2. numerische eingabe. fragt den Spieler nach seinem Einsatz und laesst ihn aus allen moeglichkeiten aus ,strategies, waehlen.
     const answers = await prompt([
         {
             type: 'select',
             name: 'bettingStrategy',
-            message: 'What is your betting strategy?',
-            choices: Object.keys(strategies)
+            message: i18n.__('betting_strategy'),
+            choices: Object.keys(strategies).map(key => {
+                return {
+                    name: key,
+                    message: i18n.__(key)
+                }
+            })
         },
 //fragt den Spieler wie viel chips er setzen will
         {
             type: 'numeral',
             name: 'bettingAmount',
-            message: 'What is your betting amount?',
+            message: i18n.__('betting_amount'),
         }
     ])
 //wenn die vorhandenen chips weniger sind, als die gesetzten geht dasd spiel nicht weiter
@@ -67,6 +90,7 @@ async function playOneRound() {
 
 //Solange der Spieler mehr als 0 Chips hat wiederholt sich das Spiel.
 async function main() {
+    await chooseLanguage()
     while (player.chips > 0){
         await playOneRound()
     }

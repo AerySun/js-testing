@@ -1,0 +1,11 @@
+{
+    "player_chips": "You have {{chips}} chips.",
+    "betting_strategy": "What is your betting strategy?",
+    "betting_amount": "What is your betting amount?",
+    "even": "even",
+    "odd": "odd",
+    "high": "high",
+    "low": "low",
+    "red": "red",
+    "black": "black"
+}

@@ -1,0 +1,11 @@
+{
+    "player_chips": "Du hast {{chips}} chips.",
+    "betting_strategy": "Worauf willst du setzen?",
+    "betting_amount": "Wie viele chips willst du setzen?",
+    "even": "gerade",
+    "odd": "ungerade",
+    "high": "hoch",
+    "low": "niedrig",
+    "red": "rot",
+    "black": "schwarz"
+}
