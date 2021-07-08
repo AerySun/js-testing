@@ -28,8 +28,8 @@ header {
 @-webkit-keyframes bgcolorchange {
     0%   {background: rgb(103, 103, 243)}
     25%  {background: rgb(97, 252, 200);}
-    75%  {background: rgb(103, 255, 128);}
-    100% {background: rgb(103, 103, 243);}
+    75%  {background: rgb(43, 248, 78);}
+    100% {background: rgb(119, 119, 243);}
 }
 
 main {
