@@ -115,3 +115,12 @@ uebung2(7)
 uebung2(8)
 uebung2(9)
 uebung2(10)
+
+function something() {
+  const names = ['ali', 'dudi', 'dani']
+  console.log(names)
+  console.log(names.length)
+  console.log(names[1])
+  console.log(names[names.length -1])
+}
+something()
