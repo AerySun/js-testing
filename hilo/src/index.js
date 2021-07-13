@@ -36,11 +36,20 @@ function play(rollType) {
     const roll = random(0, 9999)
     const strategy = strategies[rollType]
     const betAmount = getBetAmount()
+    const didWin = strategy(roll)
+    const theHistory = document.querySelector('.history')
+    const elScore = document.createElement('div')
+    const entry = document.createElement('div')
+    const elResult = document.createElement('div')
+    entry.classList.add("history_")
+    entry.appendChild(elScore)
+    entry.appendChild(elResult)
+    
     if (player.credits < betAmount) {
         return
     }
-
-    if (strategy(roll)) {
+    
+    if (didWin) {
         
         player.credits += betAmount
     } else {
@@ -49,6 +58,9 @@ function play(rollType) {
     }
     updateResultDisplay(roll, strategy(roll))
     updateCreditDisplay()
+    elScore.textContent = `${roll}`
+    elResult.textContent = `${didWin? 'won' : 'lost'}`
+    theHistory.prepend(entry)
 }
 
 function updateResultDisplay(roll, won) {
@@ -115,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allIn = document.querySelector('#allIn')
     const setBack = document.querySelector('#setBack')
     const btnautoroll = document.querySelector('#autoroll')
-
+    
     btnLow.addEventListener('click', () => play('low'))
     btnHigh.addEventListener('click', () => play('high'))
     doubleTwo.addEventListener('click', () => doubleBet())

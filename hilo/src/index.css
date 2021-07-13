@@ -103,3 +103,16 @@ main {
 .autoroll--active {
     color: red;
 }
+
+.history{
+    max-height: 150px;
+    margin-top: 1rem;
+    overflow: auto;
+}
+
+.history .history_ {
+    padding: .25rem;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}

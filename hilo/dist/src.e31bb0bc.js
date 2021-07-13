@@ -19413,12 +19413,20 @@ function play(rollType) {
   var roll = (0, _lodash.random)(0, 9999);
   var strategy = strategies[rollType];
   var betAmount = getBetAmount();
+  var didWin = strategy(roll);
+  var theHistory = document.querySelector('.history');
+  var elScore = document.createElement('div');
+  var entry = document.createElement('div');
+  var elResult = document.createElement('div');
+  entry.classList.add("history_");
+  entry.appendChild(elScore);
+  entry.appendChild(elResult);
 
   if (player.credits < betAmount) {
     return;
   }
 
-  if (strategy(roll)) {
+  if (didWin) {
     player.credits += betAmount;
   } else {
     player.credits -= betAmount;
@@ -19426,6 +19434,9 @@ function play(rollType) {
 
   updateResultDisplay(roll, strategy(roll));
   updateCreditDisplay();
+  elScore.textContent = "".concat(roll);
+  elResult.textContent = "".concat(didWin ? 'won' : 'lost');
+  theHistory.prepend(entry);
 }
 
 function updateResultDisplay(roll, won) {
@@ -19546,7 +19557,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50703" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
